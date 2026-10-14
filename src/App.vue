@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>Сапер</h1>
+    <button @click="newGame">Новая игра</button>
     <div class="board-container">
       <Board :rows="rows" :cols="cols" :mines="mines" />
     </div>
@@ -20,6 +21,11 @@ export default {
       cols: 30,
       mines: 100,
     };
+  },
+  methods: {
+    newGame() {
+      // Поведение новой игры будет добавлено позже
+    },
   },
 };
 </script>
