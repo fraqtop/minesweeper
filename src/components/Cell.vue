@@ -10,6 +10,7 @@
       <span v-else>{{ cell.adjacentMines }}</span>
     </span>
     <span v-else-if="cell.isFlagged">🚩</span>
+    <span v-else-if="!cell.isClickable">🚫</span>
   </div>
 </template>
 
