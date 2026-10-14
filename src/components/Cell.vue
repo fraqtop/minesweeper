@@ -1,7 +1,7 @@
 <template>
   <div
     class="cell"
-    :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine && cell.isOpen, 'cell-flagged': cell.isFlagged }"
+    :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine && cell.isOpen, 'cell-flagged': cell.isFlagged, 'cell-locked': !cell.isClickable }"
     @click="handleClick"
     @contextmenu.prevent="handleRightClick"
   >
@@ -57,5 +57,10 @@ export default {
 
 .cell-flagged {
   background-color: #ffff00;
+}
+
+.cell-locked {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>
