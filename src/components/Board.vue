@@ -5,6 +5,7 @@
       :key="index"
       :cell="cell"
       @click="handleCellClick(index)"
+      @right-click="handleRightClick(index)"
     />
   </div>
 </template>
@@ -39,7 +40,7 @@ export default {
     generateBoard() {
       const board = [];
       for (let i = 0; i < this.rows * this.cols; i++) {
-        board.push({ index: i, isMine: false, isOpen: false, adjacentMines: 0 });
+        board.push({ index: i, isMine: false, isOpen: false, adjacentMines: 0, isFlagged: false, isClickable: true });
       }
       this.placeMines(board);
       this.calculateAdjacentMines(board);
@@ -81,7 +82,7 @@ export default {
       });
     },
     handleCellClick(index) {
-      if (this.cells[index].isOpen) return;
+      if (!this.cells[index].isClickable || this.cells[index].isOpen || this.cells[index].isFlagged) return;
       this.cells[index].isOpen = true;
       if (this.cells[index].isMine) {
         this.gameOver();
@@ -108,6 +109,12 @@ export default {
           }
         }
       }
+    },
+    handleRightClick(index) {
+      if (this.cells[index].isOpen) return;
+      this.cells[index].isFlagged = !this.cells[index].isFlagged;
+      this.$emit('right-click', index);
+      this.cells[index].isClickable = false; // Блокируем возможность открытия ячейки через клик левой кнопкой мыши
     },
   },
 };
