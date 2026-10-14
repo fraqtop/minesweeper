@@ -1,7 +1,7 @@
 <template>
   <div
     class="cell"
-    :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine }"
+    :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine && cell.isOpen }"
     @click="handleClick"
   >
     <span v-if="cell.isOpen">{{ cell.adjacentMines }}</span>
