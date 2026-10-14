@@ -1,11 +1,30 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div id="app">
+    <h1>Сапер</h1>
+    <Board :rows="rows" :cols="cols" :mines="mines" />
+  </div>
 </template>
 
-<style scoped></style>
+<script>
+import Board from './components/Board.vue';
+
+export default {
+  components: {
+    Board,
+  },
+  data() {
+    return {
+      rows: 10,
+      cols: 10,
+      mines: 10,
+    };
+  },
+};
+</script>
+
+<style>
+#app {
+  text-align: center;
+  margin-top: 60px;
+}
+</style>
