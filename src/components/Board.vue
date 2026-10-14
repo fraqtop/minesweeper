@@ -116,6 +116,10 @@ export default {
       this.$emit('right-click', index);
       this.cells[index].isClickable = false; // Блокируем возможность открытия ячейки через клик левой кнопкой мыши
     },
+    newGame() {
+      this.cells = this.generateBoard();
+      this.$emit('new-game');
+    },
   },
 };
 </script>
