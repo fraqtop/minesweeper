@@ -4,7 +4,10 @@
     :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine && cell.isOpen }"
     @click="handleClick"
   >
-    <span v-if="cell.isOpen">{{ cell.adjacentMines }}</span>
+    <span v-if="cell.isOpen">
+      <span v-if="cell.isMine">💣</span>
+      <span v-else>{{ cell.adjacentMines }}</span>
+    </span>
   </div>
 </template>
 
