@@ -118,7 +118,6 @@ export default {
     },
     newGame() {
       this.cells = this.generateBoard();
-      this.$emit('new-game');
     },
   },
 };

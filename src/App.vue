@@ -3,7 +3,7 @@
     <h1>Сапер</h1>
     <button @click="newGame">Новая игра</button>
     <div class="board-container">
-      <Board :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" />
+      <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" />
     </div>
   </div>
 </template>
