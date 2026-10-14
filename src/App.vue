@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <h1>Сапер</h1>
-    <Board :rows="rows" :cols="cols" :mines="mines" />
+    <div class="board-container">
+      <Board :rows="rows" :cols="cols" :mines="mines" />
+    </div>
   </div>
 </template>
 
@@ -26,5 +28,12 @@ export default {
 #app {
   text-align: center;
   margin-top: 60px;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 </style>
