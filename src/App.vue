@@ -16,9 +16,9 @@ export default {
   },
   data() {
     return {
-      rows: 10,
-      cols: 10,
-      mines: 10,
+      rows: 100,
+      cols: 100,
+      mines: 100,
     };
   },
 };
