@@ -60,6 +60,7 @@ export default {
 }
 
 .cell-locked {
+  background-color: #ffa500; /* Оранжевый цвет */
   opacity: 0.5;
   cursor: not-allowed;
 }
