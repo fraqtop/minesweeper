@@ -28,9 +28,12 @@ export default {
     },
     handleRightClick() {
       if (this.cell.isOpen) return;
-      this.cell.isFlagged = !this.cell.isFlagged;
-      this.$emit('right-click', this.cell.index);
-      this.cell.isClickable = false; // Блокируем возможность открытия ячейки через клик левой кнопкой мыши
+      if (!this.cell.isClickable) {
+        this.cell.isClickable = true; // Разблокируем ячейку
+      } else {
+        this.cell.isFlagged = !this.cell.isFlagged;
+        this.$emit('right-click', this.cell.index);
+      }
     },
   },
 };
