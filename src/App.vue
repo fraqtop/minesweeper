@@ -2,10 +2,10 @@
   <div id="app">
     <h1>Сапер</h1>
     <button @click="newGame">Новая игра</button>
+    <div class="time">Время: {{ time }} сек</div>
     <div class="board-container">
       <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" @start-game="startGame" @game-over="stopGame" />
     </div>
-    <div v-if="time" class="time">Время: {{ time }} сек</div>
   </div>
 </template>
 
@@ -66,15 +66,15 @@ html, body {
   height: 100vh;
 }
 
+.time {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
 .board-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
-}
-
-.time {
-  margin-top: 20px;
-  font-size: 24px;
 }
 </style>
