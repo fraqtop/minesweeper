@@ -34,6 +34,7 @@ export default {
   data() {
     return {
       cells: this.generateBoard(),
+      isGameStarted: false,
     };
   },
   methods: {
@@ -83,9 +84,13 @@ export default {
     },
     handleCellClick(index) {
       if (!this.cells[index].isClickable || this.cells[index].isOpen || this.cells[index].isFlagged) return;
+      if (!this.isGameStarted) {
+        this.$emit('start-game');
+        this.isGameStarted = true;
+      }
       this.cells[index].isOpen = true;
       if (this.cells[index].isMine) {
-        this.gameOver();
+        this.$emit('game-over');
       } else if (this.cells[index].adjacentMines === 0) {
         this.revealAdjacentCells(index);
       }
@@ -118,6 +123,7 @@ export default {
     },
     newGame() {
       this.cells = this.generateBoard();
+      this.isGameStarted = false;
     },
   },
 };

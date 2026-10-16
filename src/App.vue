@@ -3,8 +3,9 @@
     <h1>Сапер</h1>
     <button @click="newGame">Новая игра</button>
     <div class="board-container">
-      <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" />
+      <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" @start-game="startGame" @game-over="stopGame" />
     </div>
+    <div v-if="time" class="time">Время: {{ time }} сек</div>
   </div>
 </template>
 
@@ -20,11 +21,26 @@ export default {
       rows: 16,
       cols: 30,
       mines: 100,
+      time: 0,
+      isGameStarted: false,
+      timer: null,
     };
   },
   methods: {
     newGame() {
       this.$refs.board.newGame();
+      this.time = 0;
+      this.isGameStarted = false;
+      clearInterval(this.timer);
+    },
+    startGame() {
+      this.isGameStarted = true;
+      this.timer = setInterval(() => {
+        this.time++;
+      }, 1000);
+    },
+    stopGame() {
+      clearInterval(this.timer);
     },
   },
 };
@@ -55,5 +71,10 @@ html, body {
   justify-content: center;
   align-items: center;
   height: 50vh;
+}
+
+.time {
+  margin-top: 20px;
+  font-size: 24px;
 }
 </style>
