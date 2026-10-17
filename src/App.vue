@@ -6,7 +6,7 @@
       <span>{{ time }}</span>
     </div>
     <div class="board-container">
-      <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" @start-game="startGame" @game-over="stopGame" />
+      <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" @start-game="startGame" @game-over="stopGame" @game-win="stopGame" />
     </div>
   </div>
 </template>
