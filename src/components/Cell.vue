@@ -7,7 +7,7 @@
   >
     <span v-if="cell.isOpen">
       <span v-if="cell.isMine">💣</span>
-      <span v-else>{{ cell.adjacentMines }}</span>
+      <span v-else :style="{ '--digit-color': getDigitColor(cell.adjacentMines) }">{{ cell.adjacentMines }}</span>
     </span>
     <span v-else-if="!cell.isClickable">🚩</span>
   </div>
@@ -34,6 +34,13 @@ export default {
         this.cell.isFlagged = !this.cell.isFlagged;
         this.$emit('right-click', this.cell.index);
       }
+    },
+    getDigitColor(adjacentMines) {
+      const minMines = 0;
+      const maxMines = 8;
+      const red = Math.round((adjacentMines / maxMines) * 255);
+      const blue = Math.round((1 - adjacentMines / maxMines) * 255);
+      return `rgb(${red}, 0, ${blue})`;
     },
   },
 };
