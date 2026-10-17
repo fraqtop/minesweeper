@@ -35,6 +35,7 @@ export default {
     return {
       cells: this.generateBoard(),
       isGameStarted: false,
+      isGameOver: false,
     };
   },
   methods: {
@@ -91,13 +92,17 @@ export default {
       this.cells[index].isOpen = true;
       if (this.cells[index].isMine) {
         this.$emit('game-over');
+        this.isGameOver = true;
+        this.revealAllCells();
       } else if (this.cells[index].adjacentMines === 0) {
         this.revealAdjacentCells(index);
       }
+      this.checkWin();
     },
-    gameOver() {
-      alert('Game Over!');
-      // Здесь можно добавить логику для обновления состояния игры
+    revealAllCells() {
+      this.cells.forEach(cell => {
+        cell.isRevealed = true;
+      });
     },
     revealAdjacentCells(index) {
       const row = Math.floor(index / this.cols);
@@ -124,6 +129,17 @@ export default {
     newGame() {
       this.cells = this.generateBoard();
       this.isGameStarted = false;
+      this.isGameOver = false;
+    },
+    checkWin() {
+      const totalCells = this.rows * this.cols;
+      const revealedCells = this.cells.filter(cell => cell.isOpen).length;
+      const mineCells = this.cells.filter(cell => cell.isMine).length;
+      if (revealedCells === totalCells - mineCells) {
+        this.$emit('game-win');
+        this.isGameOver = true;
+        this.revealAllCells();
+      }
     },
   },
 };
