@@ -51,8 +51,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #1e1e1e; /* Цвет фона темной темы VS Code */
-  color: #d4d4d4; /* Цвет текста темной темы VS Code */
   overflow: hidden; /* Устранение вертикального скролла */
 }
 
