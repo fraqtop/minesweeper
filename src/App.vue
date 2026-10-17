@@ -2,7 +2,9 @@
   <div id="app" class="container">
     <h1>Сапер</h1>
     <button @click="newGame" class="btn btn-primary">Новая игра</button>
-    <div class="time">Время: {{ time }} сек</div>
+    <div class="time">
+      <span>{{ time }}</span>
+    </div>
     <div class="board-container">
       <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" @start-game="startGame" @game-over="stopGame" />
     </div>
@@ -66,7 +68,14 @@ html, body {
 
 .time {
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
 }
 
 .board-container {
