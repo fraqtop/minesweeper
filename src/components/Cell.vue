@@ -74,4 +74,8 @@ export default {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.cell-open span {
+  color: var(--digit-color);
+}
 </style>
