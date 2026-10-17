@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h1>Сапер</h1>
-    <button @click="newGame">Новая игра</button>
+    <button @click="newGame" class="btn btn-primary">Новая игра</button>
     <div class="time">Время: {{ time }} сек</div>
     <div class="board-container">
       <Board ref="board" :rows="rows" :cols="cols" :mines="mines" @new-game="newGame" @start-game="startGame" @game-over="stopGame" />

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cell"
+    class="cell btn btn-secondary"
     :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine && cell.isOpen, 'cell-flagged': cell.isFlagged, 'cell-locked': !cell.isClickable }"
     @click="handleClick"
     @contextmenu.prevent="handleRightClick"
