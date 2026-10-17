@@ -55,6 +55,7 @@ export default {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: none; /* Убираем эффект затенения при наведении */
 }
 
 .cell-open {
