@@ -142,6 +142,9 @@ export default {
         this.revealAllCells();
       }
     },
+    stopTimer() {
+      clearInterval(this.timer);
+    },
   },
 };
 </script>
