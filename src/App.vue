@@ -58,11 +58,11 @@ html, body {
 
 #app {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Изменение на верхнюю позицию */
   height: 100vh;
 }
 
@@ -75,6 +75,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: calc(100vh - 150px); /* Уменьшение высоты для учета времени и кнопки */
+  overflow-y: auto; /* Добавление скролла при необходимости */
 }
 </style>
