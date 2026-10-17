@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cell btn btn-secondary"
+    class="cell"
     :class="{ 'cell-open': cell.isOpen, 'cell-mine': cell.isMine && cell.isOpen, 'cell-flagged': cell.isFlagged, 'cell-locked': !cell.isClickable }"
     @click="handleClick"
     @contextmenu.prevent="handleRightClick"
@@ -56,6 +56,7 @@ export default {
   justify-content: center;
   cursor: pointer;
   transition: none; /* Убираем эффект затенения при наведении */
+  background-color:#504E73;
 }
 
 .cell-open {
