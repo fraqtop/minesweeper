@@ -101,7 +101,8 @@ export default {
     },
     revealAllCells() {
       this.cells.forEach(cell => {
-        cell.isRevealed = true;
+        cell.isOpen = true;
+        cell.isClickable = false; // Блокируем возможность открытия ячейки через клик левой кнопкой мыши
       });
     },
     revealAdjacentCells(index) {
