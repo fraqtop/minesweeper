@@ -1,5 +1,5 @@
 <template>
-  <div class="board">
+  <div class="board" :style="{ gridTemplateColumns: `repeat(${cols}, 30px)`, gridTemplateRows: `repeat(${rows}, 30px)` }">
     <Cell
       v-for="(cell, index) in cells"
       :key="index"
@@ -154,5 +154,15 @@ export default {
   display: grid;
   grid-template-columns: repeat(v-bind(cols), 30px);
   grid-template-rows: repeat(v-bind(rows), 30px);
+  width: 100%;
+  max-width: 600px; /* Ограничиваем максимальную ширину */
+  margin: 0 auto; /* Центрируем */
+}
+
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(10, 30px); /* Уменьшаем количество столбцов */
+    grid-template-rows: repeat(20, 30px); /* Увеличиваем количество строк */
+  }
 }
 </style>
