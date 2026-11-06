@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <h1>Сапер</h1>
+    <h1>{{ appTitle }}</h1>
     <button @click="newGame" class="btn btn-primary">Новая игра</button>
     <div class="time">
       <span>{{ time }}</span>
@@ -13,6 +13,7 @@
 
 <script>
 import Board from './components/Board.vue';
+import { APP_TITLE } from './config.js';
 
 export default {
   components: {
@@ -20,6 +21,7 @@ export default {
   },
   data() {
     return {
+      appTitle: APP_TITLE,
       rows: 16,
       cols: 30,
       mines: 100,
